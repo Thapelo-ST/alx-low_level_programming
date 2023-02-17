@@ -9,7 +9,7 @@ int main(void)
 {
 	char ahlpa = 'z';
 
-	while (ahlpa >= a)
+	while (ahlpa >= 'a')
 	{
 		putchar(ahlpa);
 		ahlpa--;
