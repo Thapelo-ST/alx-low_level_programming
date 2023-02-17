@@ -7,30 +7,15 @@
 
 int main(void)
 {
-	int i = 0, j;
+	int n = 0;
 
-	while (i < 10)
+	while (n < 9)
 	{
-		j = i + 1;
-		while (j < 10)
-		{
-			putchar(i + '0');
-			putchar(',');
-			putchar(' ');
-			putchar(j + '0');
-			if (i == 8 && j == 9)
-			{
-				putchar('\n');
-			}
-			else
-			{
-				putchar(',');
-				putchar(' ');
-			}
-			j++;
-		}
-		i++;
+		putchar(n + '0');
+		putchar(',');
+		n++;
 	}
-
+	putchar('9');
+	putchar('\n');
 	return (0);
 }
