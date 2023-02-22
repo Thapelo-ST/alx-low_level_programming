@@ -24,7 +24,7 @@ void print_alphabet(void)
 
 	while (lett < 'z')
 	{
-		_putchar(lett);
+		putchar(lett);
 		lett++;
 	}
 }
@@ -43,10 +43,10 @@ void print_alphabet_x10(void)
 	{
 		while (lett < 'z')
 		{
-			_putchar(lett);
+			putchar(lett);
 			lett++;
 		}
-		_putchar('\n');
+		putchar('\n');
 		count++;
 	}
 }
