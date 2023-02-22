@@ -9,14 +9,13 @@
  *
  * Return: On success, the character written is returned. On error, -1 is
  *         returned and errno is set appropriately.
- */
 
-/*task 0*/
 int _putchar(int p)
 {
 	putchar(p);
 	return (0);
 }
+*/
 
 /*task 1*/
 void print_alphabet(void)
