@@ -1,13 +1,19 @@
 #include "main.h"
 
 /**
- * main - Entry stream
+ * print_alphabet - Entry stream
  * Return: Always 0 (success)
  */
 
-int main(void)
+void print_alphabet(void)
 {
-	print_alphabet();
-	putchar('\n');
+	char letter = 'a';
+
+	while (letter <= 'z')
+	{
+		_putchar(letter);
+		letter++;
+	}
+	_putchar('\n');
 	return (0);
 }
