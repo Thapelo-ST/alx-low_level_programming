@@ -15,11 +15,13 @@
 int _putchar(int p)
 {
 	putchar(p);
+	return (0);
 }
+
 /*task 1*/
 void print_alphabet(void)
 {
-	chr lett = 'a';
+	char lett = 'a';
 
 	while (lett < 'z')
 	{
