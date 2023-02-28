@@ -1,54 +1,45 @@
 #include <stdio.h>
-#include <limits.h>
 
 /**
- * _atoi - convert a string to an integer
- * @s: pointer to string to convert
- *
- * Return: integer value of string
- */
-
-#include <limits.h>
+  * _atoi _function that coinverts string into integer
+  * @s: the string to be converted
+  * Return: integer
+  */
 
 int _atoi(char *s)
 {
-	int sign = 1;
-	int num = 0;
-	int digit;
-	int min = INT_MIN / 10;
-	int max = INT_MAX / 10;
+	int i, val, sign;
+	char c;
 
-	while (*s == ' ' || (*s >= '\t' && *s <= '\r'))
-	{
-		s++;
-	}
+	i = 0;
+	val = 0;
+	sign = -1;
 
-	while (*s == '+' || *s == '-')
+	while (s[1] != '\0')
 	{
-		if (*s == '-')
-		{
+		c = s[i];
+		if (c == '-')
 			sign *= -1;
+		else if (c >= '0' && c <= '9')
+		{
+			if (val < 0)
+			{
+				val = val * 10 - (c - '0');
+			}
+			else
+			{
+				val = (c - '0') * -1;
+			}
+			if (s[i +1] < '0' || s[i + 1] > '9')
+			{
+				break;
+			}
 		}
-		s++;
+		i++;
 	}
-
-	while (*s >= '0' && *s <= '9')
+	if (sign < 0)
 	{
-		digit = *s - '0';
-
-		if (sign == 1 && (num > max || (num == max && digit > INT_MAX % 10)))
-		{
-			return (INT_MAX);
-		}
-
-		if (sign == -1 && (num < min || (num == min && digit > -(INT_MIN % 10))))
-		{
-			return (INT_MIN);
-		}
-
-		num = num * 10 + sign * digit;
-		s++;
+		val *= -1;
 	}
-
-	return (num);
+	return (val);
 }
