@@ -8,37 +8,47 @@
  * Return: integer value of string
  */
 
+#include <limits.h>
+
 int _atoi(char *s)
 {
 	int sign = 1;
-	int result = 0;
-	int i = 0;
+	int num = 0;
+	int digit;
+	int min = INT_MIN / 10;
+	int max = INT_MAX / 10;
 
-	while (s[i] != '\0')
+	while (*s == ' ' || (*s >= '\t' && *s <= '\r'))
 	{
-		if (s[i] == '-')
+		s++;
+	}
+
+	while (*s == '+' || *s == '-')
+	{
+		if (*s == '-')
 		{
 			sign *= -1;
 		}
-		else if (s[i] == '+')
-		{
-			/* do nothing */
-		}
-		else if (s[i] >= '0' && s[i] <= '9')
-		{
-			result = result * 10 + (s[i] - '0');
-			if ((s[i + 1] < '0' || s[i + 1] > '9') && s[i + 1] != '\0')
-			{
-				break;
-			}
-		}
-		else if (result > 0)
-		{
-			/* stop parsing once we've found a non-digit after a digit */
-			break;
-		}
-		i++;
+		s++;
 	}
 
-	return (sign * result);
+	while (*s >= '0' && *s <= '9')
+	{
+		digit = *s - '0';
+
+		if (sign == 1 && (num > max || (num == max && digit > INT_MAX % 10)))
+		{
+			return (INT_MAX);
+		}
+
+		if (sign == -1 && (num < min || (num == min && digit > -(INT_MIN % 10))))
+		{
+			return (INT_MIN);
+		}
+
+		num = num * 10 + sign * digit;
+		s++;
+	}
+
+	return (num);
 }
