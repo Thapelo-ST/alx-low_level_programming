@@ -1,3 +1,6 @@
+#include <stdio.h>
+#include <limits.h>
+
 int _atoi(char *s)
 {
 	int sign = 1, r = 0, i = 0;
