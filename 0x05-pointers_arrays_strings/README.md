@@ -1,0 +1,1 @@
+This read me includes all the informatio about tasks 0 - task 9
