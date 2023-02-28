@@ -10,22 +10,21 @@
 void print_rev(char *s)
 {
 	int len = 0;
-	char *p = s;
 
-	/* Finding the length of the string */
-	while (*p != '\0')
+	/* finding the length of the string */
+	while (*s != '\0')
 	{
 		len++;
-		p++;
+		s++;
 	}
 
-	/* Printing the string in reverse order */
-	int i = len - 1;
-
-	while (i >= 0)
+	/* printing the string in reverse */
+	s--;
+	while (len > 0)
 	{
-		putchar(s[i]);
-		i--;
+		putchar(*s);
+		s--;
+		len--;
 	}
 	putchar('\n');
 }
