@@ -1,3 +1,5 @@
+#include "main.h"
+
 /**
  * print_rev - prints a string in reverse order, followed by a new line
  *
@@ -22,7 +24,7 @@ void print_rev(char *s)
 	s--;
 	while (len > 0)
 	{
-		putchar(*s);
+		_putchar(*s);
 		s--;
 		len--;
 	}
