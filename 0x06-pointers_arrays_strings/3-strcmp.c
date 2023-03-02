@@ -9,34 +9,11 @@
 
 int _strcmp(char *s1, char *s2)
 {
-	int st1 = _strlen(s1);
-	int st2 = _strlen(s2);
-	int big = 0;
+	int i = 0;
 
-	if (st1 > st2)
+	while (*(s1 + i) && *(s2 + i) && (*(s1 + i) == *(s2 + i)))
 	{
-		big = st1;
+		i++;
 	}
-	else
-	{
-		big = st2;
-	}
-
-	int cmp = 0;
-
-	while (big > 1 && (*s1 != '\0' && *s2 != '\0'))
-	{
-		if (s1[big - 1] == s2[big - 1])
-		{
-			big--;
-			s1++;
-			s2++;
-		}
-		else
-		{
-			return (*s1 - *s2);
-		}
-	}
-
-	return (*s1 - *s2);
+	return (*(s1 + i) - *(s2 + i));
 }
