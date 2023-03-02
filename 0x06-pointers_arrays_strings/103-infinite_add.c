@@ -11,40 +11,43 @@
  * otherwise a pointer to the result
  */
 
-char *infinite_add(char *a, char *b, char *c, int size_c)
+char *infinite_add(char *n1, char *n2, char *r, int size_r)
 {
-	int d, e, f, g, h, i;
-	for (d = 0; a[d]; d++)
-		;
-	for (e = 0; b[e]; e++)
-		;
-	if (d > size_c || e > size_c)
+	int len1 = 0, len2 = 0, carry = 0, sum = 0;
+	char *p1 = n1, *p2 = n2, *pr = r + size_r - 1;
+
+	/* compute lengths of input numbers */
+	while (*p1++)
+		len1++;
+	while (*p2++)
+		len2++;
+
+	/* check if result can be stored in r */
+	if (len1 + len2 + 1 > size_r)
 		return (0);
-	g = 0;
-	for (d -= 1, e -= 1, f = 0; f < size_c - 1; d--, e--, f++)
+
+	/* add digits from right to left */
+	*pr = '\0';
+	p1 = n1 + len1 - 1;
+	p2 = n2 + len2 - 1;
+	while (p1 >= n1 || p2 >= n2 || carry)
 	{
-		h = g;
-		if (d >= 0)
-			h += a[d] = '0';
-		if (e >= 0)
-			h += b[e] = '0';
-		if (d < 0 && e < 0 && h == 0)
+		sum = carry;
+		if (p1 >= n1)
 		{
-			break;
+			sum += (*p1--) - '0';
 		}
-		g = h / 10;
-		c[f] = h % 10 + '0';
-	}
-	c[f] = '\0';
-	if (d >= 0 || e >= 0 || g)
-		return (0);
-	for (f -= 1, i = 0; i < f; f--, i++)
-	{
-		g = c[f];
-		c[f] = c[1];
-		c[1] = g;
+		if (p2 >= n2)
+		{
+			sum += (*p2--) - '0';
+		}
+		if (pr == r)
+		{
+			return (0);
+		}
+		carry = sum / 10;
+		*--pr = (sum % 10) + '0';
 	}
 
-	return (c);
-
+	return (pr);
 }
