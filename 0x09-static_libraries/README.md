@@ -1,0 +1,1 @@
+This folder will have information about static libraries
