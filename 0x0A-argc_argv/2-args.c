@@ -11,16 +11,10 @@
 
 int main(int argc, char *argv[])
 {
-	int c;
+	int i = 0;
 
-	if (argc > 1)
-	{
-		c = 1;
-		while (c < argc)
-		{
-			printf("%s \n", argv[c]);
-			c++;
-		}
-	}
+	while (i < argc)
+		printf("%s\n", argv[i++]);
+
 	return (0);
 }
