@@ -1,3 +1,5 @@
+<h1>Pointers, Arrays and Strings </h1>
+<pre>
 task/ task number  -- definition
 
 0 -- takes a pointer and ovewrite/dereference it
@@ -11,4 +13,4 @@ task/ task number  -- definition
 8 -- prints the elements of an given array ends in a new line
 9 -- copies string from source to destination returns the destination string
 100 -- converts string to interger taking account to overflow and sizeofstring
-101 -- genarates random valid passwords for program 101-crackme avaliable on github
+101 -- genarates random valid passwords for program 101-crackme avaliable on github <br>
