@@ -1,4 +1,4 @@
-Static libraries
+<h1>Static libraries</h1>
 <pre>
 Task 0 - in this task a static library was created using function decleration
          from main.h <br>
@@ -9,4 +9,4 @@ Task 0 - in this task a static library was created using function decleration
 
 Task 1 - the script create_static_lib.a is made in this task <br>
        - this file will make a static library called liball.a from all .c<br>
-         that are in the directory.
+         that are in the directory. <br>
