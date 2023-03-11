@@ -1,5 +1,5 @@
-<span style="font-size: 1.5em;"> Static libraries</span>
 <pre>
+<span style="font-size: 1.5em;"> Static libraries</span>
 Task 0 - in this task a static library was created using function decleration
          from main.h <br>
 	- then the source code for each file from functions declared in main.h<br> 
