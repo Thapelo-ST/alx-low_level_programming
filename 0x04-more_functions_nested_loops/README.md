@@ -1,3 +1,6 @@
+<h1>More functions and nested loops</h1>
+
+<pre>
 Task name/number --- definition
 
 Task 0 --- it is supposed to check a charecter if its upper case or lowercase
