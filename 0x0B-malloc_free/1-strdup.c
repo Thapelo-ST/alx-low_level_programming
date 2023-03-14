@@ -10,16 +10,26 @@
 char *_strdup(char *str)
 {
 	char *cstr;
+	int i = 0, j = 0;
 
 	if (str == NULL)
-	{
 		return (NULL);
-	}
-	cstr = malloc(_strlen(str) + 1);
+
+	while (*(str + i))
+		j++, i++;
+	j++;
+
+	cstr = malloc(sizeof(char) * j);
+
 	if (cstr == NULL)
-	{
 		return (NULL);
+
+	i = 0;
+	while (i < j)
+	{
+		*(cstr + i) = *(str + i);
+		i++;
 	}
-	_strcpy(cstr, str);
+
 	return (cstr);
 }
