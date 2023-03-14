@@ -13,15 +13,15 @@ char *str_concat(char *s1, char *s2)
      s1 = s1 == NULL ? "" : s1;
      s2 = s2 == NULL ? "" : s2;
 
-     int len1 = strlen(s1);
-     int len2 = strlen(s2);
+     int len1 = _strlen(s1);
+     int len2 = _strlen(s2);
 
      char *conc = malloc(len1 + len2 + 1);
      if (conc == NULL)
          return (NULL);
 
-     memcpy(conc, s1, len1);
-     memcpy(conc + len1, s2, len2 + 1);
+     _memcpy(conc, s1, len1);
+     _memcpy(conc + len1, s2, len2 + 1);
 
      return (conc);
-} 
+}
