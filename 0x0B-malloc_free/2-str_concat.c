@@ -20,8 +20,8 @@ char *str_concat(char *s1, char *s2)
      if (conc == NULL)
          return (NULL);
 
-     _memcpy(conc, s1, len1);
-     _memcpy(conc + len1, s2, len2 + 1);
+     _strncat(conc, s1, len1);
+     _strncat(conc + len1, s2, len2 + 1);
 
      return (conc);
 }
