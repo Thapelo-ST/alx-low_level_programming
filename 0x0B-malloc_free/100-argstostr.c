@@ -1,6 +1,26 @@
 #include "main.h"
 
 /**
+ * _strlen - checks string length
+ * @s: a pointer to a char
+ * Return: length of string.
+ * Description: This function checks how long is the string and returns the
+ *              length of the string.
+ */
+
+int _strlen(char *s)
+{
+	int l = 0;
+
+	while (*s != '\0')
+	{
+		l++;
+		s++;
+	}
+	return (l);
+}
+
+/**
  * argstostr - concatenates all the arguments of your program.
  * @ac: arguments count
  * @av: arguments vector
@@ -9,34 +29,26 @@
 
 char *argstostr(int ac, char **av)
 {
-	int i, j, k, size;
+	int i, j, k;
+	int len = 0;
 	char *s;
 
 	if (ac == 0 || av == NULL)
 		return (NULL);
-
-	while (i < ac)
+	for (i = 0; i < ac; i++)
+		len += _strlen(av[i]) + 1;
+	s = malloc(sizeof(char) * len);
+	if (s == NULL)
+		return (NULL);
+	k = 0;
+	for (i = 0; i < ac; i++)
 	{
-		j = 0;
-		while (av[i][j] != 0)
-			size++, j++;
-		size++, i++;
+		for (j = 0; av[i][j]; j++)
+		{
+			s[k++] = av[i][j];
+		}
+		s[k++] = '\n';
 	}
-	size++;
-	str = (char *)malloc(sizeof(char) * size);
-	if (str == 0)
-	{
-		free(str);
-		return (0);
-	}
-	i = 0;
-	while (i < ac)
-	{
-		j = 0;
-		while (av[i][j] != 0)
-			str[k] = av[i][j], j++, k++;
-		str[k] = '\n', k++, i++;
-	}
-	str[k] = 0;
-	return (str);
+	s[k] = '\0';
+	return (s);
 }
