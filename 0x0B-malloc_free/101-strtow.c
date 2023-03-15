@@ -25,11 +25,9 @@ int countWords(char *str)
 	}
 	return (words);
 }
-
 /**
  * countChars - counts the numbers o characters
  * @str: source string
- *
  * Return: the number of words.
  */
 
@@ -51,7 +49,6 @@ int countChars(char *str)
 	}
 	return (chars);
 }
-
 /**
  * strtow - separates the character to an string of words
  * @str: source
@@ -102,4 +99,3 @@ char **strtow(char *str)
 	*(words + numWords) = NULL;
 	return (words);
 }
-
