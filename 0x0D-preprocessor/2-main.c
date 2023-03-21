@@ -2,13 +2,12 @@
 #define FILENAME __FILE__
 
 /**
- * main = entry stream
+ * main - print filename
  *
- * RETURN: Sucess 0
- *
+ * Return: 0 on success
  */
 
-int main()
+int main(void)
 {
 	printf("%s\n", FILENAME);
 	return (0);
