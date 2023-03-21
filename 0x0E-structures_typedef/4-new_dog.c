@@ -62,15 +62,14 @@ dog_t *new_dog(char *name, float age, char *owner)
 		return (NULL);
 	}
 	/*assigning memory and copying if memory is avaliable*/
-	new_dog -> name = _strdup(name);
-	new_dog -> age = age;
-	new_dog -> owner = _strdup(owner);
-
+	new_dog->name = _strdup(name);
+	new_dog->age = age;
+	new_dog->owner = _strdup(owner);
 	/*check if assignment succeded*/
-	if(new_dog -> name == NULL || new_dog -> owner == NULL)
+	if (new_dog->name == NULL || new_dog->owner == NULL)
 	{
-		free(new_dog -> name);
-		free(new_dog -> owner);
+		free(new_dog->name);
+		free(new_dog->owner);
 		free(new_dog);
 		return (NULL);
 	}
