@@ -10,6 +10,6 @@
 
 int main()
 {
-	printf("The name of the current file is: %s\n", FILENAME);
+	printf("%s\n", FILENAME);
 	return (0);
 }
