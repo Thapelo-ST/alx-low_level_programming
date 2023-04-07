@@ -12,15 +12,14 @@
 unsigned int flip_bits(unsigned long int n, unsigned long int m)
 {
 	/* decalaring and assignoing variables */
-        unsigned long int diff = n ^ m;
-        unsigned int count = 0;
+	unsigned long int diff = n ^ m;
+	unsigned int count = 0;
 
 	/* clearing bits */
-        while (diff)
-        {
-                count += diff & 1;
-                diff >>= 1;
-        }
-
-        return (count);
+	while (diff)
+	{
+		count += diff & 1;
+		diff >>= 1;
+	}
+	return (count);
 }

@@ -9,7 +9,7 @@
 void print_binary(unsigned long int n)
 {
 	/* checking if n can be shifted to the right to add to position */
-	if ( n >> 0 )
+	if (n >> 0)
 	{
 		/*if it can shift it by one position to the right*/
 		if (n >> 1)
