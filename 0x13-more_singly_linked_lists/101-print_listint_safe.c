@@ -16,27 +16,30 @@ size_t print_listint_safe(const listint_t *head)
 	/*checking validity*/
 	if (head == NULL)
 	{
-		exit(98);
+		return (0);
 	}
 	/* looping to print */
-	while (first_ptr != NULL && second_ptr != NULL && second_ptr->next != NULL)
+	while (first_ptr != NULL && second_ptr != NULL)
 	{
-		printf("[%p] %d\n",(void *)first_ptr->next, first_ptr->n);
+		printf("[%p] %d\n",(void *)first_ptr, first_ptr->n);
 		/*incrimenting variables*/
 		counter++;
 		first_ptr = first_ptr->next;
-		second_ptr = second_ptr->next->next;
+		if (second_ptr->next != NULL)
+			second_ptr = second_ptr->next->next;
+		else
+			break;
 		/*checking if the loop exits*/
 		if (first_ptr == second_ptr)
 		{
 			printf("-> [%p] %d\n", (void *)first_ptr, first_ptr->n);
-			exit(98);
+			return(-1);
 		}
 	}
 	/*print other node pointers and elements if they exist*/
 	while (first_ptr != NULL)
 	{
-		printf("[%p] %d\n",(void *)first_ptr->next, first_ptr->n);
+		printf("[%p] %d\n",(void *)first_ptr, first_ptr->n);
 		counter++;
 		first_ptr = first_ptr->next;
 	}
