@@ -6,13 +6,13 @@
  */
 
 int get_endianness(void)
-  {
-    /*declaring variables*/
-    unsigned int end = 1;
-    char *check = (char *)&end;
-    /* getting endianness */
-    if (*check)
-      return (1);
-    else
-      return (0);
-  }
+{
+	/*declaring variables*/
+	unsigned int end = 1;
+	char *check = (char *)&end;
+	/* getting endianness */
+	if (*check)
+		return (1);
+	else
+		return (0);
+}
