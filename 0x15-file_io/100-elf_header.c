@@ -1,8 +1,8 @@
 #include "main.h"
 /**
  * main - entry point
- * argc: ...
- * argv: ...
+ * @argc: ...
+ * @argv: ...
  * Return: ...
  */
 int main(int argc, char **argv)
@@ -10,25 +10,25 @@ int main(int argc, char **argv)
 	int fd, i;
 	Elf64_Ehdr elf_header;
 
+	/*checking validity*/
 	if (argc != 2)
 	{
 		fprintf(stderr, "Usage: %s elf_filename\n", argv[0]);
 		exit(98);
 	}
-
+	/*opening file*/
 	fd = open(argv[1], O_RDONLY);
 	if (fd == -1)
 	{
 		fprintf(stderr, "Error: could not open file %s\n", argv[1]);
 		exit(98);
 	}
-
+	/*reading file*/
 	if (read(fd, &elf_header, sizeof(elf_header)) != sizeof(elf_header))
 	{
-		fprintf(stderr, "Error: could not read ELF header from file %s\n", argv[1]);
+		fprintf(stderr, "Error: can't read ELF header from file %s\n", argv[1]);
 		exit(98);
 	}
-
 	if (elf_header.e_ident[EI_MAG0] != ELFMAG0 ||
 	    elf_header.e_ident[EI_MAG1] != ELFMAG1 ||
 	    elf_header.e_ident[EI_MAG2] != ELFMAG2 ||
@@ -44,7 +44,6 @@ int main(int argc, char **argv)
 		printf("%02x ", elf_header.e_ident[i]);
 	}
 	printf("\n");
-
 	printf("  Class:                             %s\n",
 	       elf_header.e_ident[EI_CLASS] == ELFCLASS32 ? "ELF32" :
 	       elf_header.e_ident[EI_CLASS] == ELFCLASS64 ? "ELF64" :
@@ -60,47 +59,47 @@ int main(int argc, char **argv)
 	printf("  OS/ABI:                            ");
 	switch (elf_header.e_ident[EI_OSABI])
 	{
-        case ELFOSABI_SYSV:
+	case ELFOSABI_SYSV:
 		printf("UNIX System V ABI\n");
 		break;
-        case ELFOSABI_HPUX:
+	case ELFOSABI_HPUX:
 		printf("HP-UX ABI\n");
 		break;
-        case ELFOSABI_NETBSD:
+	case ELFOSABI_NETBSD:
 		printf("NetBSD ABI\n");
 		break;
-        case ELFOSABI_LINUX:
+	case ELFOSABI_LINUX:
 		printf("Linux ABI\n");
 		break;
-        case ELFOSABI_SOLARIS:
+	case ELFOSABI_SOLARIS:
 		printf("Solaris ABI\n");
 		break;
-        case ELFOSABI_AIX:
+	case ELFOSABI_AIX:
 		printf("AIX ABI\n");
 		break;
-        case ELFOSABI_IRIX:
+	case ELFOSABI_IRIX:
 		printf("IRIX ABI");
 		printf("  ABI Version:                       %d\n", elf_header.e_ident[EI_ABIVERSION]);
 
 		printf("  Type:                              ");
 		switch (elf_header.e_type)
 		{
-                case ET_NONE:
+		case ET_NONE:
 			printf("NONE (No file type)\n");
 			break;
-                case ET_REL:
+		case ET_REL:
 			printf("REL (Relocatable file)\n");
 			break;
-                case ET_EXEC:
+		case ET_EXEC:
 			printf("EXEC (Executable file)\n");
 			break;
-                case ET_DYN:
+		case ET_DYN:
 			printf("DYN (Shared object file)\n");
 			break;
-                case ET_CORE:
+		case ET_CORE:
 			printf("CORE (Core file)\n");
 			break;
-                default:
+		default:
 			printf("Unknown\n");
 			break;
 		}
