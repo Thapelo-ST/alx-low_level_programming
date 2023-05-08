@@ -37,7 +37,7 @@ int main(int argc, char **argv)
 		fprintf(stderr, "Error: %s is not an ELF file\n", argv[1]);
 		exit(98);
 	}
-	printf("ELF Header:");
+	printf("ELF Header:\n");
 	printf("  Magic:   ");
 	for (i = 0; i < EI_NIDENT; i++)
 	{
