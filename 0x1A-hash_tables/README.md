@@ -1,4 +1,4 @@
-<h1>C- Hash tables<h1/>
+<h1>C- Hash tables</h1>
 <prep>
 A hash table is a data structure that allows storage and retrival
 of key-value pairs. It uses hashing to map keys to a specific location/s
