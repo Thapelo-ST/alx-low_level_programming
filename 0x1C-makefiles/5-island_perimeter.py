@@ -1,6 +1,8 @@
 #!/usr/bin/python3
 """
+    calculates the perimeter of an island in the frid
 
+    returns: the perimeter of the island
 """
 
 
@@ -10,7 +12,6 @@ def island_perimeter(grid):
 
     returns: the perimeter of the island
     """
-
     # declare variables needed
     perimeter = 0
 
