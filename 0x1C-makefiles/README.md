@@ -1,7 +1,5 @@
 ## C-Makefiles
 
-C - Makefiles
-
 Make and Makefiles are essential tools in software development, commonly used to automate the build process of projects. They facilitate compiling, linking, and managing complex projects.
 
 Make:
@@ -41,4 +39,3 @@ Setting and Using Variables:
 - Variables are set using the format: 'VARIABLE_NAME = value'.
 - Use variables with '$(VARIABLE_NAME)' to reference their values in rules and commands.
 
-Author: [Your Name]
